@@ -1,0 +1,34 @@
+<div class="panel panel-default" ng-controller="groupListController">
+    <div class="panel-heading">
+        <div class="panel-title">
+            <div class="page-header">
+                <h3>管理组列表 </h3>
+            </div>
+            <ol class="breadcrumb text-right" style="font-size: 14px;margin:0;padding:0">
+                <li><a data-ui-sref="app">首页</a></li>
+                <li class="active">管理组列表</li>
+            </ol>
+        </div>
+    </div>
+    <div class="panel-body">
+        <div class="panel-title">
+            <button class="btn btn-primary btn-sm pull-right" data-ui-sref="app.addGroup">添加管理组</button>
+        </div>
+        <table class="table table-hover">
+            <thead>
+                <tr class="row">
+                    <td class="col-sm-2"><strong>管理员角色</strong></td>
+                    <td class="col-sm-1"><strong>编辑</strong></td>
+                    <td class="col-sm-9"><strong>删除</strong></td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class=row ng-repeat="user in list">
+                    <td class="col-sm-2" ng-bind="user.group_name"></td>
+                    <td class="col-sm-1"><a data-ui-sref="app.groupAccess({id: user.group_id})"><span class="glyphicon glyphicon-pencil" data-toggle="tooltip" data-placement="top" title="编辑"></span></a></td>
+                    <td class="col-sm-9"><a href="javascript:void(0)" ng-click="delete($index,user.group_id)" style="color: #d9534f"><span class="glyphicon glyphicon-remove"  data-toggle="tooltip" data-placement="top" title="删除"></span></a></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

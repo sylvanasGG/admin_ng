@@ -1,0 +1,39 @@
+<h3>指令生成的form</h3>
+<form class="form-horizontal" name="userAddForm" novalidate>
+            <div class="form-group">
+                <label for="username" class="col-sm-1 control-label">Username</label>
+                <div class="col-sm-11">
+                    <input type="text" class="form-control" id="username" name="username" ng-model="data.username" placeholder="Username" required minlength=2>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="Email" class="col-sm-1 control-label">Email</label>
+                <div class="col-sm-11">
+                    <input type="email" class="form-control" id="Email" name="email" ng-model="data.email" placeholder="Email" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="Password" class="col-sm-1 control-label">Password</label>
+                <div class="col-sm-11">
+                    <input type="password" class="form-control" id="Password" name="password" ng-model="data.password" placeholder="Password" required minlength=6>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-1 control-label"></label>
+                <div class="col-sm-11">
+                    <p style="color:red" ng-show="userAddForm.username.$dirty || userAddForm.email.$dirty || userAddForm.password.$dirty">
+                        <span ng-show="userAddForm.username.$error.minlength">用户名长度不能小于2位</span>
+                        <span ng-show="userAddForm.password.$error.minlength">密码长度不能小于6位</span>
+                        <span ng-show="userAddForm.email.$error.email">请输入正确的邮箱地址</span>
+                        <span ng-if="error" style="color:red">{{error}}</span>
+                    </p>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-offset-1 col-sm-11">
+                    <button type="button" class="btn m-b-xs w-xs btn-primary" ng-click="addUser()" ng-disabled="userAddForm.$invalid">注册</button>
+                    <test></test> 
+                </div>
+
+            </div>
+        </form>

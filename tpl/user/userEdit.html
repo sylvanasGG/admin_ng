@@ -1,0 +1,53 @@
+<div class="panel panel-default" ng-controller="userEditController">
+    <div class="panel-heading">
+        <div class="panel-title">
+            <div class="page-header">
+                <h3>管理员编辑 </h3>
+            </div>
+            <ol class="breadcrumb text-right" style="font-size: 14px;margin:0;padding:0">
+                <li><a data-ui-sref="app">首页</a></li>
+                <li><a data-ui-sref="app.userList">管理员列表</a></li>
+                <li class="active">管理员编辑</li>
+            </ol>
+        </div>
+    </div>
+    <div class="panel-body">
+        <form class="form-horizontal" name="userEditForm" novalidate>
+            <div class="form-group">
+                <label for="username" class="col-sm-1 control-label">Username</label>
+                <div class="col-sm-11">
+                    <input type="text" class="form-control" id="username" name="username" ng-model="data.username"  required minlength=2>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="Email" class="col-sm-1 control-label">Email</label>
+                <div class="col-sm-11">
+                    <input type="email" class="form-control" id="Email" name="email" ng-model="data.email" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="Password" class="col-sm-1 control-label">Password</label>
+                <div class="col-sm-11">
+                    <input type="password" class="form-control" id="Password" name="password" ng-model="data.password"  required minlength=6>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-1 control-label"></label>
+                <div class="col-sm-11">
+                    <p style="color:red" ng-show="userEditForm.username.$dirty || userEditForm.email.$dirty || userEditForm.password.$dirty">
+                        <span ng-show="userEditForm.username.$error.minlength">用户名长度不能小于2位</span>
+                        <span ng-show="userEditForm.email.$error.email">请输入正确的邮箱地址</span>
+                        <span ng-show="userEditForm.password.$error.minlength">密码长度不能小于6位</span>
+                        <span ng-if="error" style="color:red">{{error}}</span>
+                    </p>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-offset-1 col-sm-11">
+                    <button type="button" class="btn m-b-xs w-xs btn-primary" ng-click="subEdit()" ng-disabled="userEditForm.$invalid">Submit</button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="panel-footer"><p>{{data | json}}</p></div>
+</div>

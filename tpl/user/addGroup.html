@@ -1,0 +1,40 @@
+<div class="panel panel-default" ng-controller="groupAddController">
+    <div class="panel-heading">
+        <div class="panel-title">
+            <div class="page-header">
+                <h3>管理员添加 </h3>
+            </div>
+            <ol class="breadcrumb text-right" style="font-size: 14px;margin:0;padding:0">
+                <li><a data-ui-sref="app">首页</a></li>
+                <li class="active">管理员添加</li>
+            </ol>
+        </div>
+    </div>
+    <div class="panel-body">
+        <ng-form class="form-horizontal" name="addGroupForm" novalidate>
+            <div class="form-group">
+                <label for="group" class="col-sm-1 control-label">管理组名称</label>
+                <div class="col-sm-11">
+                    <input type="text" class="form-control" id="group" name="group" ng-model="data.adminGroup" placeholder="请输入管理组名称" required>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-1 control-label"></label>
+                <div class="col-sm-11">
+                    <p style="color:red" ng-show="addGroupForm.group.$dirty">
+                        <span ng-show="addGroupForm.group.$error.required">请输入管理组名称</span>
+                        <span ng-if="error" style="color:red">{{error}}</span>
+                    </p>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-offset-1 col-sm-11">
+                    <button type="submit" class="btn m-b-xs w-xs btn-primary" ng-click="addGroup()" ng-disabled="addGroupForm.$invalid">添加</button>
+                </div>
+
+            </div>
+        </ng-form>
+    </div>
+    <div class="panel-footer"><p>{{data | json}}</p></div>
+</div>

@@ -1,0 +1,53 @@
+<div class="panel panel-default" ng-controller="accessEditController">
+    <div class="panel-heading">
+        <div class="panel-title">
+            <div class="page-header">
+                <h3>管理组权限 </h3>
+            </div>
+            <ol class="breadcrumb text-right" style="font-size: 14px;margin:0;padding:0">
+                <li><a data-ui-sref="app">首页</a></li>
+                <li><a data-ui-sref="app.groupList">管理组列表</a></li>
+                <li class="active">管理组权限</li>
+            </ol>
+        </div>
+    </div>
+    <div class="panel-body">
+        <!--<div class="panel-title"><h4><b>管理员名称</b></h4></div>-->
+        <div class="form-group">
+            <!--<label class="col-sm-2 control-label">管理员:</label>-->
+            <div class="col-sm-2">
+                <div class="checkbox">
+                    <label class="i-checks">
+                        <input type="checkbox" value="" ng-model="access.userList">
+                        <i></i>
+                        管理员列表
+                    </label>
+                </div>
+            </div>
+            <div class="col-sm-2">
+                <div class="checkbox">
+                    <label class="i-checks">
+                        <input type="checkbox" value=""  ng-model="access.userAdd">
+                        <i></i>
+                        管理员添加
+                    </label>
+                </div>
+            </div>
+            <div class="col-sm-2">
+                <div class="checkbox">
+                    <label class="i-checks">
+                        <input type="checkbox" value=""  ng-model="access.groupList">
+                        <i></i>
+                        管理组列表
+                    </label>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="panel-footer">
+        <button class="btn btn-primary" ng-click="subAccess()">提交</button>
+    </div>
+
+</div>

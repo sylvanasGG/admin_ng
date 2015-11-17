@@ -1,0 +1,39 @@
+<div class="panel panel-default" ng-controller="userListController">
+
+    <div class="panel-heading">
+        <div class="panel-title">
+            <div class="page-header">
+                <h3>管理员列表 </h3>
+            </div>
+            <ol class="breadcrumb text-right" style="font-size: 14px;margin:0;padding:0">
+                <li><a data-ui-sref="app">首页</a></li>
+                <li class="active">管理员列表</li>
+            </ol>
+        </div>
+    </div>
+    <div class="panel-body">
+        <table class="table table-hover">
+                <thead>
+                    <tr class="row">
+                        <td class="col-sm-1"><strong>ID</strong></td>
+                        <td class="col-sm-3"><strong>用户名</strong></td>
+                        <td class="col-sm-2"><strong>管理组</strong></td>
+                        <td class="col-sm-3"><strong>邮箱</strong></td>
+                        <td class="col-sm-2"><strong>编辑</strong></td>
+                        <td class="col-sm-1"><strong>删除</strong></td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class=row ng-repeat="user in list">
+                        <td class="col-sm-1" ng-bind="user.u_id"></td>
+                        <td class="col-sm-3" ng-bind="user.username"></td>
+                        <td class="col-sm-2" ng-bind="user.group"></td>
+                        <td class="col-sm-3" ng-bind="user.email"></td>
+                        <td class="col-sm-2"><a data-ui-sref="app.editUser({id: user.u_id})"><span class="glyphicon glyphicon-pencil" data-toggle="tooltip" data-placement="top" title="编辑"></span></a></td>
+                        <td class="col-sm-1"><a href="javascript:void(0)" ng-click="delete($index,user.u_id)" style="color: #d9534f"><span class="glyphicon glyphicon-remove"  data-toggle="tooltip" data-placement="top" title="删除"></span></a></td>
+                    </tr>
+                </tbody>
+            </table>
+    </div>
+    <div class="panel-footer">分页</div>
+</div>

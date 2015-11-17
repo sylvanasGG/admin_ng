@@ -1,0 +1,30 @@
+<div class="panel panel-default" ng-controller="SelectCtrl">
+    <div class="panel-heading">
+        <div class="panel-title">
+            <div class="page-header">
+                <h3>分页 </h3>
+            </div>
+            <ol class="breadcrumb text-right" style="font-size: 14px;margin:0;padding:0">
+                <li><a data-ui-sref="app">首页</a></li>
+                <li class="active">分页</li>
+            </ol>
+        </div>
+    </div>
+    <div class="panel-body">
+		<div class="form-group">
+        <label class="col-sm-3 control-label text-left">Default</label>
+        <div class="col-sm-6">
+
+          <ui-select ng-model="person.selected" theme="bootstrap">
+            <ui-select-match placeholder="Select or search a person in the list...">{{$select.selected.name}}</ui-select-match>
+            <ui-select-choices repeat="item in people | filter: $select.search">
+              <div ng-bind-html="item.name | highlight: $select.search"></div>
+              <small ng-bind-html="item.email | highlight: $select.search"></small>
+            </ui-select-choices>
+          </ui-select>
+
+        </div>
+      </div>
+
+    </div>
+</div>
