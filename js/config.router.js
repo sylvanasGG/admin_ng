@@ -7,7 +7,7 @@ angular.module('app')
                 function ($rootScope,   $state,   $stateParams) {
                     $rootScope.$state = $state;
                     $rootScope.$stateParams = $stateParams;
-                    $rootScope.baseUrl = 'http://localhost/Anjs/app/php/';
+                    $rootScope.baseUrl = 'http://localhost/Lazar/Ng/app/php/';
                     $rootScope.$on('$stateChangeStart',function(event, toState, toParams, fromState, fromParams){
                         $rootScope.menuActive = toState.name;
                         if(toState.name=='login')return;// 如果是进入登录界面则允许
@@ -53,13 +53,6 @@ angular.module('app')
                     templateUrl: "tpl/user/userList.html"
                 }
             }
-             ,
-             resolve: { // Any property in resolve should return a promise and is executed before the view is loaded
-                 userList: ['$ocLazyLoad', function($ocLazyLoad) {
-                 // you can lazy load files for an existing module
-                 return $ocLazyLoad.load('js/controllers/user.js');
-               }]
-             }
 
         })
         .state('app.userAdd', {
